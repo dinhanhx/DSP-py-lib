@@ -19,7 +19,7 @@ def DTZT(x, n, rangeW, numW, rangeR, numR):
 
     X = np.zeros(r.size, w.size)
     for r_i in range(r.size):
-        X[r_i,:] = (x * ((r[r_i]) ** (-1 .* n))) * exp(-1j * n.transpose() * w)
+        X[r_i,:] = (x * ((r[r_i]) ** (-1 * n))) * exp(-1j * n.transpose() * w)
 
 
     return X, w, r
@@ -45,8 +45,8 @@ def ZRespDE(x_coeff, y_coeff, rangeW, numW, rangeR, numR):
 
     H = np.zeros(r.size, w.size)
     for r_i in range(r.size):
-        numerator = (x_coeff * ((r[r_i]) ** (-1 .* m))) * exp(-1j * m.transpose() * w)
-        denominator = (y_coeff * ((r[r_i]) ** (-1 .* l))) * exp(-1j * l.transpose() * w)
+        numerator = (x_coeff * ((r[r_i]) ** (-1 * m))) * exp(-1j * m.transpose() * w)
+        denominator = (y_coeff * ((r[r_i]) ** (-1 * l))) * exp(-1j * l.transpose() * w)
         H[r_i,:] = numerator / denominator;
 
 
