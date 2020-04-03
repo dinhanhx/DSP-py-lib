@@ -21,9 +21,11 @@ def Rectangle(n0, n1, lb, rb):
     # n1 is where UnitStep ending == 1
     # from left bound (lb) to right bound (rb)
     n = np.arange(lb, rb+1, 1)
+    # numpy is stupid not me, I swear matlab does better here.
     temp1 = n - n0 >= 0
     temp2 = n1 - n >= 0
-    x = np.array(temp1 * temp2) # numpy is stupid not me, I swear matlab does better here.
+    x = np.array(temp1 * temp2)
+    #>
     x = x.astype('int')
     return x, n
 
