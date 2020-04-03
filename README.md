@@ -1,7 +1,10 @@
 # DSP-py-lib
-A libray written in matlab for Digital Signal Processing.
 
-This can be excuted by Python 3.
+Check my big brother [here.](https://github.com/dinhanhx/DSP-matlab-lib)
+
+A library written in MATLAB for Digital Signal Processing.
+
+This can be executed by Python 3.
 
 Check wiki for more details. [Click me.]() (Not implemented)
 
