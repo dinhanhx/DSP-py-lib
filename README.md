@@ -2,7 +2,7 @@
 
 Check my big brother [here.](https://github.com/dinhanhx/DSP-matlab-lib)
 
-A library written in MATLAB for Digital Signal Processing.
+A library written in Python for Digital Signal Processing.
 
 This can be executed by Python 3.
 
