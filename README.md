@@ -19,6 +19,6 @@ from dsp_py.Z import *
 ```
 ## Note
 
-I need workforce, read the issue for information.
+I need workforce, read [the issue](https://github.com/dinhanhx/DSP-py-lib/issues/1) for information.
 
 ~ Author: Vu Dinh Anh ~
