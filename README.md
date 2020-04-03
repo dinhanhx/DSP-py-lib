@@ -3,8 +3,22 @@ A libray written in matlab for Digital Signal Processing.
 
 This can be excuted by Python 3.
 
-Check wiki for more details. [Click me.]()
+Check wiki for more details. [Click me.]() (Not implemented)
 
-Will make this file become better.
+## Quick installation guide
+Download this repos or clone then run the following command to setup everything in 'modules' folder
+```
+pip install -r requirements.txt .
+```
+## Quick manual guide
+```Python
+from dsp_py.BasicSignal import *
+from dsp_py.Operation import *
+from dsp_py.Fourier import *
+from dsp_py.Z import *
+```
+## Note
+
+I need workforce, read the issue for information.
 
 ~ Author: Vu Dinh Anh ~
