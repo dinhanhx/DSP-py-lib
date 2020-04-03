@@ -7,7 +7,7 @@ def DTFT(x, n, range, num):
     lbw = range[0]
     rbw = range[1]
     stepw = (rbw - lbw)/(num - 1)
-    w = np.arange(lbr, rbw+stepw, stepw)
+    w = np.arange(lbw, rbw+stepw, stepw)
     X = x * np.exp(1j * n.transpose() * w)
     return X, w
 
