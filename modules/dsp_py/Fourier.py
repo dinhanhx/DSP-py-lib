@@ -8,7 +8,7 @@ def DTFT(x, n, range, num):
     rbw = range[1]
     stepw = (rbw - lbw)/(num - 1)
     w = np.arange(lbw, rbw+stepw, stepw)
-    X = x * np.exp(1j * n.transpose() * w)
+    X = x * np.exp(1j * n.T * w)
     return X, w
 
 def FreqRespDE(x_coeff, y_coeff, range, num):
@@ -21,7 +21,7 @@ def FreqRespDE(x_coeff, y_coeff, range, num):
     w = np.arange(lbr, rbw+stepw, stepw)
     m = np.arange(0, x_coeff.size-1, 1)
     l = np.arange(0, y_coeff.size-1, 1)
-    numerator = x_coeff * np.exp(1j * m.transpose() * w)
-    denominator = y_coeff * np.exp(1j * l.transpose() * w)
+    numerator = x_coeff * np.exp(1j * m.T * w)
+    denominator = y_coeff * np.exp(1j * l.T * w)
     H = numerator/denominator
     return H, w
