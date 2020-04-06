@@ -15,10 +15,11 @@ pip install -r requirements.txt .
 ```
 ## Quick manual guide
 ```Python
-from dsp_py.BasicSignal import *
-from dsp_py.Operation import *
-from dsp_py.Fourier import *
-from dsp_py.Z import *
+from dsp_py.BasicSignal import * # To get signal makers
+from dsp_py.Operation import * # To get basic operators
+from dsp_py.Fourier import * # To get DTFT
+from dsp_py.Z import * # To get DTZT
+from matplotlib import pyplot as plt # Use plt.stem() to plot this signal
 ```
 ## Note
 
