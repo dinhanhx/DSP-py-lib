@@ -16,7 +16,7 @@ def Add(x1, n1, x2, n2):
     y2[temp1 * temp2 == 1] = x2
     #>
     x = y1 + y2
-    x = x.astype('int')
+    x = x.astype('float')
     return x, n
 
 def Mul(x1, n1, x2, n2):
@@ -34,7 +34,7 @@ def Mul(x1, n1, x2, n2):
     y2[temp1 * temp2 == 1] = x2
     #>
     x = y1 * y2
-    x = x.astype('int')
+    x = x.astype('float')
     return x, n
 
 # x1 = np.array([0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0])

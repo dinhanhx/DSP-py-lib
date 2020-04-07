@@ -5,7 +5,7 @@ def Delta(n0, lb, rb):
     # from left bound (lb) to right bound (rb)
     n = np.arange(lb, rb+1, 1)
     x = np.array((n - n0) == 0)
-    x = x.astype('int')
+    x = x.astype('float')
     return x, n
 
 def UnitStep(n0, lb, rb):
@@ -13,7 +13,7 @@ def UnitStep(n0, lb, rb):
     # from left bound (lb) to right bound (rb)
     n = np.arange(lb, rb+1, 1)
     x = np.array((n - n0) >= 0)
-    x = x.astype('int')
+    x = x.astype('float')
     return x, n
 
 def Rectangle(n0, n1, lb, rb):
@@ -26,7 +26,7 @@ def Rectangle(n0, n1, lb, rb):
     temp2 = n1 - n >= 0
     x = np.array(temp1 * temp2)
     #>
-    x = x.astype('int')
+    x = x.astype('float')
     return x, n
 
 def Exp(a, b, c, lb, rb): # Should not be confused with numpy.exp()
