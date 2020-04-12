@@ -85,7 +85,7 @@ def Convole(x1, n1, x2, n2):
 # print(x)
 # print(n)
 
-def Crosscorrelate(x1, n1, x2, n2):
+def Correlate(x1, n1, x2, n2):
     x2, n2 = Fold(x2, n2)
     x, n = Convole(x1, n1, x2, n2)
     return x, n
