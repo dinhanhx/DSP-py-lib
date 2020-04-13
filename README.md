@@ -9,7 +9,7 @@ This can be executed by Python 3.
 Check wiki for more details. [Click me.]() (Not implemented)
 
 ## Quick installation guide
-Download this repos or clone then run the following command to setup everything in 'modules' folder
+Download this repos or clone then run the following command in 'modules' folder to setup everything.
 ```
 pip install -r requirements.txt .
 ```
