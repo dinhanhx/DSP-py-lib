@@ -6,7 +6,7 @@ A library written in Python for Digital Signal Processing.
 
 This can be executed by Python 3.
 
-Check wiki for more details. [Click me.]() (Not implemented)
+Check wiki for more details. [Click me.](https://github.com/dinhanhx/DSP-py-lib/wiki)
 
 ## Quick installation guide
 Download this repos or clone then run the following command in 'modules' folder to setup everything.
