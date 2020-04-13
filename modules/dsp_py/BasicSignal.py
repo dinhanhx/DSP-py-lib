@@ -36,6 +36,13 @@ def Exp(a, b, c, lb, rb): # Should not be confused with numpy.exp()
     x = a * (b ** (c*n))
     return x, n
 
+def ComplexExp(a, phi, omega, lb, rb): # You can use dsp_py.Exp() instead but this is pure and better if you need complex exponential signal
+    # a.e^((phi + j.omega).t)
+    # from left bound (lb) to right bound (rb)
+    n = np.arange(lb, rb+1, 1)
+    x = a * np.exp((phi + 1j*omega)*n)
+    return x, n
+
 def Sin(A, w, p, lb, rb):
     # A is amplitude
     # w is omega
