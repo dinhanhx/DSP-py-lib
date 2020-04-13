@@ -86,11 +86,14 @@ def Convole(x1, n1, x2, n2):
 # print(n)
 
 def Correlate(x1, n1, x2, n2):
+    # x1 and n1 are illumination of first signal
+    # x2 and n2 are illumination of second signal
     x2, n2 = Fold(x2, n2)
     x, n = Convole(x1, n1, x2, n2)
     return x, n
 
 def OddEvenSyn(x):
+    # x is illumination of a signal
     x_odd = 0.5 * (x - np.flip(x))
     x_even = 0.5 * (x + np.flip(x))
     return x_odd, x_even
