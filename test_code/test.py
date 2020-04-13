@@ -1,4 +1,3 @@
-from dsp_py.BasicSignal import *
-from dsp_py.Operation import *
-from dsp_py.Fourier import *
-from dsp_py.Z import *
+import dsp_py as dp
+import numpy as np
+import matplotlib.pyplot as plt
