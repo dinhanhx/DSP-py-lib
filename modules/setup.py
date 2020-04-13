@@ -1,6 +1,6 @@
 from setuptools import setup
 setup(name='dsp_py',
-version='0.0.2',
+version='0.0.3',
 description='A support library for Digital Signal Processing',
 url='https://github.com/dinhanhx/DSP-py-lib',
 author='dinhanhx',
