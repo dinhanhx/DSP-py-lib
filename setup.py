@@ -4,7 +4,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 from setuptools import setup
 setup(name='dsp_py',
-version='0.0.4',
+version='1.0',
 description='A support library for Digital Signal Processing',
 url='https://github.com/dinhanhx/DSP-py-lib',
 author='dinhanhx',
