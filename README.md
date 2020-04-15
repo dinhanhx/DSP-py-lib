@@ -9,11 +9,11 @@ This can be executed by Python 3.
 Check wiki for more details. [Click me.](https://github.com/dinhanhx/DSP-py-lib/wiki)
 
 ## Quick installation guide
-Download this repos or clone then run the following command in 'modules' folder to setup everything.
+Download this repos or clone then run the following command in repos folder (or where setup.py is) to setup everything.
 ```
 pip install -r requirements.txt .
 ```
-Or download with PyPi
+Or download with PyPi (Wont update regularly)
 
 ```
 pip install dsp-py
@@ -26,6 +26,6 @@ import matplotlib.pyplot as plt
 ```
 ## Note
 
-I need workforce, read [the issue](https://github.com/dinhanhx/DSP-py-lib/issues/1) for information.
+I need workforce, read [the issue](https://github.com/dinhanhx/DSP-py-lib/issues) for information.
 
 ~ Author: Vu Dinh Anh ~
