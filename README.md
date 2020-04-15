@@ -13,6 +13,11 @@ Download this repos or clone then run the following command in 'modules' folder 
 ```
 pip install -r requirements.txt .
 ```
+Or download with PyPi
+
+```
+pip install dsp-py
+```
 ## Quick manual guide
 ```Python
 import dsp_py as dp
