@@ -1,19 +1,19 @@
 import numpy as np
 
-def DTZT(x, n, rangeW, numW, rangeR, numR):
+def DTZT(x, n, intervalW, numW, intervalR, numR):
     # x and n are representation of signal in time domain
-    # rangeW = [lbw, rbw] of w (omega)
+    # intervalW = [lbw, rbw] of w (omega)
     # numW is number of equispaced points from lbw to rbw
-    # rangeR = [lbr, rbr] of r (radius)
+    # intervalR = [lbr, rbr] of r (radius)
     # numR is number of equispaced points from lbr to rbr
     # DTZT is more general than DTFT
-    lbw = rangeW[0]
-    rbw = rangeW[1]
+    lbw = intervalW[0]
+    rbw = intervalW[1]
     stepw = (rbw - lbw)/(numW - 1)
     w = np.arange(lbw, rbw+stepw, stepw)
 
-    lbr = rangeR[0]
-    rbr = rangeR[1]
+    lbr = intervalR[0]
+    rbr = intervalR[1]
     stepr = (rbr - lbr)/(numR - 1)
     r = np.arange(lbr, rbr+stepr, stepr)
 
@@ -24,19 +24,19 @@ def DTZT(x, n, rangeW, numW, rangeR, numR):
 
     return X, w, r
 
-def ZRespDE(x_coeff, y_coeff, rangeW, numW, rangeR, numR):
+def ZRespDE(x_coeff, y_coeff, intervalW, numW, intervalR, numR):
     # Z Respone from Difference Equation
-    # rangeW = [lbw, rbw] of w (omega)
+    # intervalW = [lbw, rbw] of w (omega)
     # numW is number of equispaced points from lbw to rbw
-    # rangeR = [lbr, rbr] of r (radius)
+    # intervalR = [lbr, rbr] of r (radius)
     # numR is number of equispaced points from lbr to rbr
-    lbw = rangeW[0]
-    rbw = rangeW[1]
+    lbw = intervalW[0]
+    rbw = intervalW[1]
     stepw = (rbw - lbw)/(numW - 1)
     w = np.arange(lbw, rbw+stepw, stepw)
 
-    lbr = rangeR[0]
-    rbr = rangeR[1]
+    lbr = intervalR[0]
+    rbr = intervalR[1]
     stepr = (rbr - lbr)/(numR - 1)
     r = np.arange(lbr, rbr+stepr, stepr)
 
