@@ -12,4 +12,6 @@ author_email='dinhanhx@gmail.com',
 license='The Unlicensed',
 packages=['dsp_py'],
 zip_safe=False,
-install_requires=['numpy', 'scipy', 'matplotlib', 'colorama'])
+install_requires=['numpy', 'scipy', 'matplotlib', 'colorama'],
+long_description=long_description,
+long_description_content_type="text/markdown")
