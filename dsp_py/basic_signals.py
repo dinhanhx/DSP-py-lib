@@ -1,6 +1,6 @@
 import numpy as np
 
-def Delta(n0, lb, rb):
+def delta(n0, lb, rb):
     # n0 is where Delta == 1
     # from left bound (lb) to right bound (rb)
     n = np.arange(lb, rb+1, 1)
@@ -8,7 +8,7 @@ def Delta(n0, lb, rb):
     x = x.astype('float')
     return x, n
 
-def UnitStep(n0, lb, rb):
+def unit_step(n0, lb, rb):
     # n0 is where UnitStep starting == 1
     # from left bound (lb) to right bound (rb)
     n = np.arange(lb, rb+1, 1)
@@ -16,7 +16,7 @@ def UnitStep(n0, lb, rb):
     x = x.astype('float')
     return x, n
 
-def Rectangle(n0, n1, lb, rb):
+def rectangle(n0, n1, lb, rb):
     # n0 is where UnitStep starting == 1
     # n1 is where UnitStep ending == 1
     # from left bound (lb) to right bound (rb)
@@ -29,21 +29,21 @@ def Rectangle(n0, n1, lb, rb):
     x = x.astype('float')
     return x, n
 
-def Exp(a, b, c, lb, rb): # Should not be confused with numpy.exp()
+def exp(a, b, c, lb, rb): # Should not be confused with numpy.exp()
     # a.b^(c.t)
     # from left bound (lb) to right bound (rb)
     n = np.arange(lb, rb+1, 1)
     x = a * (b ** (c*n))
     return x, n
 
-def ComplexExp(a, phi, omega, lb, rb): # You can use dsp_py.Exp() instead but this is pure and better if you need complex exponential signal
+def complex_exp(a, phi, omega, lb, rb): # You can use dsp_py.Exp() instead but this is pure and better if you need complex exponential signal
     # a.e^((phi + j.omega).t)
     # from left bound (lb) to right bound (rb)
     n = np.arange(lb, rb+1, 1)
     x = a * np.exp((phi + 1j*omega)*n)
     return x, n
 
-def Sin(A, w, p, lb, rb):
+def sin(A, w, p, lb, rb):
     # A is amplitude
     # w is omega
     # p is phase
@@ -51,7 +51,7 @@ def Sin(A, w, p, lb, rb):
     x = A * np.sin(w*n + p)
     return x, n
 
-def Cos(A, w, p, lb, rb):
+def cos(A, w, p, lb, rb):
     # A is amplitude
     # w is omega
     # p is phase

@@ -1,6 +1,6 @@
 import numpy as np
 
-def DTFT(x, n, interval, num):
+def dtft(x, n, interval, num):
     # x and n are representation of signal in time domain
     # interval = [lbw, rbw] of w (omega)
     # num is number of equispaced points from lbw to rbw
@@ -11,7 +11,7 @@ def DTFT(x, n, interval, num):
     X = x * np.exp(1j * n.T * w)
     return X, w
 
-def FreqRespDE(x_coeff, y_coeff, interval, num):
+def frde(x_coeff, y_coeff, interval, num):
     # Frequency Response from Difference Equation
     # range = [lbw, rbw] of w (omega)
     # num is number of equispaced points from lbw to rbw

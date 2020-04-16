@@ -1,9 +1,10 @@
 import numpy as np
 from colorama import init
-init() # This is for Windows
 from colorama import Fore
 
-def Fill(x, n):
+init()  # This is for Windows
+
+def fill(x, n):
     # Add meaningful zeros to x
     # Also expand n till n == 0
     x_type = x.dtype
@@ -24,8 +25,8 @@ def Fill(x, n):
 
     return x.astype(x_type), n.astype(n_type)
 
-def PrintSignal(x, n):
-    x, n = Fill(x, n) # make sure the signal has meaningful zeros
+def print_signal(x, n):
+    x, n = fill(x, n) # make sure the signal has meaningful zeros
     # Print x and x(0) is colored green
     zero_pos = int(np.where(n == 0)[0])
     s = '['
@@ -45,6 +46,6 @@ def PrintSignal(x, n):
 # x = np.array([1, 1, 1])
 # n = np.array([2, 3, 4])
 #
-# PrintSignal(x, n)
+# print_signal(x, n)
 #
-# x, n = Fill(x, n)
+# x, n = fill(x, n)
