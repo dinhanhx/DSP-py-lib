@@ -39,7 +39,7 @@ def unit_step(n0, left, right):
     return x, n
 
 
-def rectangle(n0, n1, left, reft):
+def rectangle(n0, n1, left, right):
     """Return the rectangle signal.
 
     Parameters:
@@ -63,7 +63,7 @@ def rectangle(n0, n1, left, reft):
     return x, n
 
 
-def exponential(mantissa, base, power, left, reft):
+def exponential(mantissa, base, power, left, right):
     """Return the exponential signal.
 
     The signal's value will be `mantissa * base ^ (power * time)`.
