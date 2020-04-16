@@ -1,4 +1,4 @@
 from .basic_signals import *
-from .fourier import *
+from .Fourier import *
 from .operations import *
 from .z import *
