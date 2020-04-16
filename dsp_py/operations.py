@@ -86,7 +86,7 @@ def fold(x, n):
     n: The time value of the signal
 
     Returns:
-    ndarray[float]: The sum of the folded signal
+    ndarray[float]: The folded signal
     ndarray[int]: The time values of the folded signal
     """
     return np.flip(x), -np.flip(n)
