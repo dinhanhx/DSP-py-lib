@@ -5,8 +5,12 @@ from colorama import Fore
 init()  # This is for Windows
 
 def fill(x, n):
-    # Add meaningful zeros to x
-    # Also expand n till n == 0
+    """Extend the signal to include the origin (0).
+
+    Parameters:
+    x: The signal
+    n: The time values of the signals
+    """
     x_type = x.dtype
     n_type = n.dtype
     if 0 in n:
@@ -26,8 +30,13 @@ def fill(x, n):
     return x.astype(x_type), n.astype(n_type)
 
 def print_signal(x, n):
-    x, n = fill(x, n) # make sure the signal has meaningful zeros
-    # Print x and x(0) is colored green
+    """Print the signal, with the zero value colored green.
+
+    Parameters:
+    x: The signal
+    n: The time values of the signals
+    """
+    x, n = fill(x, n)
     zero_pos = int(np.where(n == 0)[0])
     s = '['
     for i in range(x.size):

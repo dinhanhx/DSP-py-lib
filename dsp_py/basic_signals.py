@@ -1,26 +1,56 @@
 import numpy as np
 
-def delta(n0, lb, rb):
-    # n0 is where Delta == 1
-    # from left bound (lb) to right bound (rb)
-    n = np.arange(lb, rb+1, 1)
+def delta(n0, left, right):
+    """Return the Dirac delta signal.
+
+    Parameters:
+    n0: Value for the impulse, i.e. where the signal value is 1
+    left: Left bound of the signal
+    right: Rright bound of the signal
+
+    Returns:
+    ndarray[float]: The values of the signal
+    ndarray[int]: The interval of the signal from left bound
+    to right bound
+    """
+    n = np.arange(left, right+1, 1)
     x = np.array((n - n0) == 0)
     x = x.astype('float')
     return x, n
 
-def unit_step(n0, lb, rb):
-    # n0 is where UnitStep starting == 1
-    # from left bound (lb) to right bound (rb)
-    n = np.arange(lb, rb+1, 1)
+def unit_step(n0, left, right):
+    """Return the unit step signal.
+
+    Parameters:
+    n0: Where the signal starts having value 1
+    left: Left bound of the signal
+    right: Rright bound of the signal
+
+    Returns:
+    ndarray[float]: The values of the signal
+    ndarray[int]: The interval of the signal from left bound
+    to right bound
+    """
+    n = np.arange(left, right + 1, 1)
     x = np.array((n - n0) >= 0)
     x = x.astype('float')
     return x, n
 
-def rectangle(n0, n1, lb, rb):
-    # n0 is where UnitStep starting == 1
-    # n1 is where UnitStep ending == 1
-    # from left bound (lb) to right bound (rb)
-    n = np.arange(lb, rb+1, 1)
+def rectangle(n0, n1, left, reft):
+    """Return the rectangle signal.
+
+    Parameters:
+    n0: Where the rectangle signal starts
+    n1: Where the rectangle signal stops
+    left: Left bound of the signal
+    right: Rright bound of the signal
+
+    Returns:
+    ndarray[float]: The values of the signal
+    ndarray[int]: The interval of the signal from left bound
+    to right bound
+    """
+    n = np.arange(left, right+1, 1) 
     # numpy is stupid not me, I swear matlab does better here.
     temp1 = n - n0 >= 0
     temp2 = n1 - n >= 0
@@ -29,32 +59,83 @@ def rectangle(n0, n1, lb, rb):
     x = x.astype('float')
     return x, n
 
-def exp(a, b, c, lb, rb): # Should not be confused with numpy.exp()
-    # a.b^(c.t)
-    # from left bound (lb) to right bound (rb)
-    n = np.arange(lb, rb+1, 1)
-    x = a * (b ** (c*n))
+def exp(mantissa, base, power, left, reft): # Should not be confused with numpy.exp()
+    """Return the exponential signal.
+
+    The signal's value will be `mantissa * base ^ (power * time)`.
+
+    Parameters:
+    mantissa: The mantissa, i.e. the scale of the signal
+    base: The exponential base
+    power: The exponential power
+    left: Left bound of the signal
+    right: Rright bound of the signal
+
+    Returns:
+    ndarray[float]: The values of the signal
+    ndarray[int]: The interval of the signal from left bound
+    to right bound
+    """
+    n = np.arange(left, right+1, 1)
+    x = mantissa * (base ** (power * n))
     return x, n
 
-def complex_exp(a, phi, omega, lb, rb): # You can use dsp_py.Exp() instead but this is pure and better if you need complex exponential signal
-    # a.e^((phi + j.omega).t)
-    # from left bound (lb) to right bound (rb)
-    n = np.arange(lb, rb+1, 1)
-    x = a * np.exp((phi + 1j*omega)*n)
+def complex_exp(mantissa, phi, omega, lb, rb): # You can use dsp_py.Exp() instead but this is pure and better if you need complex exponential signal
+    """Return the exponential signal.
+
+    The signal's value will be `mantissa * e^(phi + j * omega)`,
+    where e is natural logarithm constant and j is the imaginary unit.
+
+    Parameters:
+    mantissa: The mantissa, i.e. the scale of the signal
+    phi: The shifted phase of the complex signal
+    omega: The angular component of the signal
+    left: Left bound of the signal
+    right: Rright bound of the signal
+
+    Returns:
+    ndarray[float]: The values of the signal
+    ndarray[int]: The interval of the signal from left bound
+    to right bound
+    """
+    n = np.arange(left, right+1, 1)
+    x = mantissa * np.exp((phi + 1j * omega) * n)
     return x, n
 
-def sin(A, w, p, lb, rb):
-    # A is amplitude
-    # w is omega
-    # p is phase
-    n = np.arange(lb, rb+1, 1)
-    x = A * np.sin(w*n + p)
+def sin(amplitude, omega, phase, left, right):
+    """Return a sinusoidal signal.
+
+    Parameters:
+    amplitude: The amplitude of the signal
+    omega: The angular rate of the signal
+    phase: The shifted phase of the signal
+    left: Left bound of the signal
+    right: Rright bound of the signal
+
+    Returns:
+    ndarray[float]: The values of the signal
+    ndarray[int]: The interval of the signal from left bound
+    to right bound
+    """
+    n = np.arange(left, right+1, 1)
+    x = amplitude * np.sin(omega * n + phase)
     return x, n
 
 def cos(A, w, p, lb, rb):
-    # A is amplitude
-    # w is omega
-    # p is phase
-    n = np.arange(lb, rb+1, 1)
-    x = A * np.cos(w*n + p)
+    """Return a cosinusoidal signal.
+
+    Parameters:
+    amplitude: The amplitude of the signal
+    omega: The angular rate of the signal
+    phase: The shifted phase of the signal
+    left: Left bound of the signal
+    right: Rright bound of the signal
+
+    Returns:
+    ndarray[float]: The values of the signal
+    ndarray[int]: The interval of the signal from left bound
+    to right bound
+    """
+    n = np.arange(left, right+1, 1)
+    x = amplitude * np.cos(omega * n + phase)
     return x, n

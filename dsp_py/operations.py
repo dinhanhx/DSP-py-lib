@@ -1,27 +1,47 @@
 import numpy as np
 from scipy.signal import convolve as conv
 
-def add(x1, n1, x2, n2):
-    # x1 and n1 are illumination of first signal
-    # x2 and n2 are illumination of second signal
+def add(x_1, n_1, x_2, n_2):
+    """Add two signals and return.
+
+    Parameters:
+    x_1: The first signal
+    x_2: The second signal
+    n_1: The time values of the first siganl
+    n_2: n_1: The time values of the first siganl
+
+    Returns:
+    ndarray[float]: The sum of the two signals
+    ndarray[int]: The time values of the sum signal
+    """
     n = np.arange(min(np.min(n1), np.min(n2)), max(np.max(n1), np.max(n2)) + 1, 1)
-    y1 = np.zeros(n.size)
-    y2 = np.zeros(n.size)
+    y_1 = np.zeros(n.size)
+    y_2 = np.zeros(n.size)
     # numpy is stupid not me, I swear matlab does better here.
-    temp1 = n >= np.min(n1)
-    temp2 = n <= np.max(n1)
-    y1[temp1 * temp2 == 1] = x1
+    temp1 = n >= np.min(n_1)
+    temp2 = n <= np.max(n_1)
+    y1[temp1 * temp2 == 1] = x_1
     temp1 = n >= np.min(n2)
     temp2 = n <= np.max(n2)
-    y2[temp1 * temp2 == 1] = x2
+    y2[temp1 * temp2 == 1] = x_2
     #>
-    x = y1 + y2
+    x = y_1 + y_2
     x = x.astype('float')
     return x, n
 
-def mul(x1, n1, x2, n2):
-    # x1 and n1 are illumination of first signal
-    # x2 and n2 are illumination of second signal
+def mul(x_1, n_1, x_2, n_2):
+     """Multiply two signals and return.
+
+    Parameters:
+    x_1: The first signal
+    x_2: The second signal
+    n_1: The time values of the first siganl
+    n_2: n_1: The time values of the first siganl
+
+    Returns:
+    ndarray[float]: The product of the two signals
+    ndarray[int]: The time values of the product signal
+    """
     n = np.arange(min(np.min(n1), np.min(n2)), max(np.max(n1), np.max(n2)) + 1, 1)
     y1 = np.zeros(n.size)
     y2 = np.zeros(n.size)
@@ -47,11 +67,20 @@ def mul(x1, n1, x2, n2):
 # print(x)
 # print(n)
 
-def shift(x1, n1, k):
-    # x1 and n1 are illumination of first signal
-    # y(n) = x(n-k)
-    n = n1 + k
-    return x1, n
+def shift(x, n, k):
+    """Shift a signal by k units.
+
+    Parameters:
+    x: The first signal
+    n: The time value of the signal
+    k: The amount shifted
+
+    Returns:
+    ndarray[float]: The shifted signal
+    ndarray[int]: The time values of the shifted signal
+    """
+    n = n + k
+    return x, n
 
 # x1 = np.array([0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0])
 # n1 = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
@@ -59,9 +88,18 @@ def shift(x1, n1, k):
 # print(x1)
 # print(n1)
 
-def fold(x1, n1):
-    # y(n) = x(-n)
-    return np.flip(x1), -np.flip(n1)
+def fold(x, n):
+    """Fold the signal, i.e. reverse it.
+
+    Parameters:
+    x: The first signal
+    n: The time value of the signal
+
+    Returns:
+    ndarray[float]: The sum of the folded signal
+    ndarray[int]: The time values of the folded signal
+    """
+    return np.flip(x), -np.flip(n)
 
 # x1 = np.array([0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0])
 # n1 = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
@@ -69,13 +107,23 @@ def fold(x1, n1):
 # print(x1)
 # print(n1)
 
-def convole(x1, n1, x2, n2):
-    # x1 and n1 are illumination of first signal
-    # x2 and n2 are illumination of second signal
-    lb = n1[0] + n2[0]
-    rb = n1[n1.size-1] + n2[n1.size-1]
-    n = np.arange(lb, rb+1, 1)
-    x = conv(x1, x2)
+def convole(x_1, n_1, x_2, n_2):
+    """Convolve two signals and return.
+
+    Parameters:
+    x_1: The first signal
+    x_2: The second signal
+    n_1: The time values of the first siganl
+    n_2: n_1: The time values of the first siganl
+
+    Returns:
+    ndarray[float]: The result signal
+    ndarray[int]: The time values of the result signal
+    """
+    left = n_1[0] + n_2[0]
+    right = n_1[n_1.size-1] + n_2[n_1.size-1]
+    n = np.arange(left, right+1, 1)
+    x = conv(x_1, x_2)
     return x, n
 
 # x1 = np.array([0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1])
@@ -85,15 +133,33 @@ def convole(x1, n1, x2, n2):
 # print(x)
 # print(n)
 
-def correlate(x1, n1, x2, n2):
-    # x1 and n1 are illumination of first signal
-    # x2 and n2 are illumination of second signal
-    x2, n2 = fold(x2, n2)
-    x, n = convole(x1, n1, x2, n2)
+def correlate(x_1, n_1, x_2, n_2):
+    """Return the correlation of two signals
+
+    Parameters:
+    x_1: The first signal
+    x_2: The second signal
+    n_1: The time values of the first siganl
+    n_2: n_1: The time values of the first siganl
+
+    Returns:
+    ndarray[float]: The result signal
+    ndarray[int]: The time values of the result signal
+    """
+    x_2, n_2 = fold(x_2, n_2)
+    x, n = convole(x_1, n_1, x_2, n_2)
     return x, n
 
 def odd_even(x):
-    # x is illumination of a signal
+    """Return the odd and the even parts of the signal.
+
+    Parameters:
+    x: The input signal
+
+    Returns:
+    ndarray[float]: The odd part of the signal
+    ndarray[float]: The even part of the signal
+    """
     x_odd = 0.5 * (x - np.flip(x))
     x_even = 0.5 * (x + np.flip(x))
     return x_odd, x_even
