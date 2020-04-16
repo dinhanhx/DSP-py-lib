@@ -1,6 +1,7 @@
 import numpy as np
 from scipy.signal import convolve as conv
 
+
 def add(x_1, n_1, x_2, n_2):
     """Add two signals and return.
 
@@ -14,7 +15,8 @@ def add(x_1, n_1, x_2, n_2):
     ndarray[float]: The sum of the two signals
     ndarray[int]: The time values of the sum signal
     """
-    n = np.arange(min(np.min(n1), np.min(n2)), max(np.max(n1), np.max(n2)) + 1, 1)
+    n = np.arange(min(np.min(n1), np.min(n2)),
+                  max(np.max(n1), np.max(n2)) + 1, 1)
     y_1 = np.zeros(n.size)
     y_2 = np.zeros(n.size)
     # numpy is stupid not me, I swear matlab does better here.
@@ -29,6 +31,7 @@ def add(x_1, n_1, x_2, n_2):
     x = x.astype('float')
     return x, n
 
+
 def mul(x_1, n_1, x_2, n_2):
      """Multiply two signals and return.
 
@@ -42,7 +45,8 @@ def mul(x_1, n_1, x_2, n_2):
     ndarray[float]: The product of the two signals
     ndarray[int]: The time values of the product signal
     """
-    n = np.arange(min(np.min(n1), np.min(n2)), max(np.max(n1), np.max(n2)) + 1, 1)
+    n = np.arange(min(np.min(n1), np.min(n2)),
+                  max(np.max(n1), np.max(n2)) + 1, 1)
     y1 = np.zeros(n.size)
     y2 = np.zeros(n.size)
     # numpy is stupid not me, I swear matlab does better here.
@@ -57,15 +61,6 @@ def mul(x_1, n_1, x_2, n_2):
     x = x.astype('float')
     return x, n
 
-# x1 = np.array([0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0])
-# n1 = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-#
-# x2 = np.array([0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0])
-# n2 = np.array([-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
-#
-# x, n = mul(x1, n1, x2, n2)
-# print(x)
-# print(n)
 
 def shift(x, n, k):
     """Shift a signal by k units.
@@ -82,11 +77,6 @@ def shift(x, n, k):
     n = n + k
     return x, n
 
-# x1 = np.array([0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0])
-# n1 = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-# x1, n1 = shift(x1, n1, 1)
-# print(x1)
-# print(n1)
 
 def fold(x, n):
     """Fold the signal, i.e. reverse it.
@@ -101,11 +91,6 @@ def fold(x, n):
     """
     return np.flip(x), -np.flip(n)
 
-# x1 = np.array([0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0])
-# n1 = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-# x1, n1 = fold(x1, n1)
-# print(x1)
-# print(n1)
 
 def convole(x_1, n_1, x_2, n_2):
     """Convolve two signals and return.
@@ -126,12 +111,6 @@ def convole(x_1, n_1, x_2, n_2):
     x = conv(x_1, x_2)
     return x, n
 
-# x1 = np.array([0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1])
-# n1 = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-#
-# x, n = convole(x1, n1, x1, n1)
-# print(x)
-# print(n)
 
 def correlate(x_1, n_1, x_2, n_2):
     """Return the correlation of two signals
@@ -149,6 +128,7 @@ def correlate(x_1, n_1, x_2, n_2):
     x_2, n_2 = fold(x_2, n_2)
     x, n = convole(x_1, n_1, x_2, n_2)
     return x, n
+
 
 def odd_even(x):
     """Return the odd and the even parts of the signal.

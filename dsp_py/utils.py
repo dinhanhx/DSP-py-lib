@@ -4,6 +4,7 @@ from colorama import Fore
 
 init()  # This is for Windows
 
+
 def fill(x, n):
     """Extend the signal to include the origin (0).
 
@@ -29,6 +30,7 @@ def fill(x, n):
 
     return x.astype(x_type), n.astype(n_type)
 
+
 def print_signal(x, n):
     """Print the signal, with the zero value colored green.
 
@@ -45,16 +47,7 @@ def print_signal(x, n):
         else:
             s = s + str(x[i]) + ' '
 
-
     s = s[:-1]
     s = s + ']'
     print(s)
     return ''
-
-
-# x = np.array([1, 1, 1])
-# n = np.array([2, 3, 4])
-#
-# print_signal(x, n)
-#
-# x, n = fill(x, n)

@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def dtzt(x, n, interval_w, num_w, interval_r, num_r):
     """Return the discrete-time z-transform of a signal.
 
@@ -29,8 +30,8 @@ def dtzt(x, n, interval_w, num_w, interval_r, num_r):
     for r_i in range(r.size):
         X[r_i,:] = (x * ((r[r_i]) ** (-1 * n))) * exp(-1j * n.T * w)
 
-
     return X, w, r
+
 
 def zrde(x_coeff, y_coeff, interval_w, num_w, interval_r, num_r):
     """Return the z response from differential equation.
@@ -65,6 +66,5 @@ def zrde(x_coeff, y_coeff, interval_w, num_w, interval_r, num_r):
         numerator = (x_coeff * ((r[r_i]) ** (-1 * m))) * exp(-1j * m.T * w)
         denominator = (y_coeff * ((r[r_i]) ** (-1 * l))) * exp(-1j * l.T * w)
         H[r_i,:] = numerator / denominator;
-
 
     return H, w, r

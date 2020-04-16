@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def dtft(x, n, interval, num):
     """Return the discrete-time Fourier transform of a signal.
 
@@ -19,6 +20,7 @@ def dtft(x, n, interval, num):
     w = np.arange(left_w, right_w + step_w, step_w)
     X = x * np.exp(1j * n.T * w)
     return X, w
+
 
 def frde(x_coeff, y_coeff, interval, num):
     """Return the frequency response from differential equation.

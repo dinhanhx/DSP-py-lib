@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def delta(n0, left, right):
     """Return the Dirac delta signal.
 
@@ -18,6 +19,7 @@ def delta(n0, left, right):
     x = x.astype('float')
     return x, n
 
+
 def unit_step(n0, left, right):
     """Return the unit step signal.
 
@@ -35,6 +37,7 @@ def unit_step(n0, left, right):
     x = np.array((n - n0) >= 0)
     x = x.astype('float')
     return x, n
+
 
 def rectangle(n0, n1, left, reft):
     """Return the rectangle signal.
@@ -59,6 +62,7 @@ def rectangle(n0, n1, left, reft):
     x = x.astype('float')
     return x, n
 
+
 def exponential(mantissa, base, power, left, reft):
     """Return the exponential signal.
 
@@ -79,6 +83,7 @@ def exponential(mantissa, base, power, left, reft):
     n = np.arange(left, right+1, 1)
     x = mantissa * (base ** (power * n))
     return x, n
+
 
 def complex_exponential(mantissa, phi, omega, lb, rb):
     """Return the exponential signal.
@@ -102,6 +107,7 @@ def complex_exponential(mantissa, phi, omega, lb, rb):
     x = mantissa * np.exp((phi + 1j * omega) * n)
     return x, n
 
+
 def sin(amplitude, omega, phase, left, right):
     """Return a sinusoidal signal.
 
@@ -120,6 +126,7 @@ def sin(amplitude, omega, phase, left, right):
     n = np.arange(left, right+1, 1)
     x = amplitude * np.sin(omega * n + phase)
     return x, n
+
 
 def cos(A, w, p, lb, rb):
     """Return a cosinusoidal signal.
