@@ -59,7 +59,7 @@ def rectangle(n0, n1, left, reft):
     x = x.astype('float')
     return x, n
 
-def exp(mantissa, base, power, left, reft): # Should not be confused with numpy.exp()
+def exponential(mantissa, base, power, left, reft):
     """Return the exponential signal.
 
     The signal's value will be `mantissa * base ^ (power * time)`.
@@ -80,7 +80,7 @@ def exp(mantissa, base, power, left, reft): # Should not be confused with numpy.
     x = mantissa * (base ** (power * n))
     return x, n
 
-def complex_exp(mantissa, phi, omega, lb, rb): # You can use dsp_py.Exp() instead but this is pure and better if you need complex exponential signal
+def complex_exponential(mantissa, phi, omega, lb, rb):
     """Return the exponential signal.
 
     The signal's value will be `mantissa * e^(phi + j * omega)`,
