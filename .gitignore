@@ -5,3 +5,4 @@ dist
 *.zip
 *.tar.gz
 dsp_py.egg-info
+setup.cfg
