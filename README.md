@@ -1,3 +1,5 @@
+There are a lot of things happened. I got busier. I got pre-depressed. Therefore, I decided to stop working on this project.  
+
 # DSP-py-lib
 
 Check my big brother [here.](https://github.com/dinhanhx/DSP-matlab-lib)
